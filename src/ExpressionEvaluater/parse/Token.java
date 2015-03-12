@@ -1,15 +1,20 @@
 package ExpressionEvaluater.parse;
 
-import java.lang.Object;public class Token {
+public class Token {
 
-    private Object value;
+    public String value, type;
 
-    public Object getValue() {
+    public Token(String value, String type) {
+        this.value=value;
+        this.type=type;
+    }
+
+    public  String getType(){
+        return type;
+    }
+
+    public String getValue() {
         return value;
     }
-
-    public Token(Object value) {
-        this.value = value;
-    }
-
 }
+
