@@ -1,4 +1,4 @@
-package ExpressionEvaluater;
+package ExpressionEvaluater.evaluador;
 
 import ExpressionEvaluater.expression.Expression;
 import java.lang.ClassNotFoundException;

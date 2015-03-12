@@ -10,4 +10,5 @@ public class SintacticalAnalyzerTest {
         Token[]TokenList= {new Token(new Constant(1))};
         assertEquals(TokenList[0],new Constant(1));
     }
+
 }

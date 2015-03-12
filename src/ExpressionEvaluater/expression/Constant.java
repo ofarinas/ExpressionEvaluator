@@ -11,4 +11,5 @@ public  class Constant implements Expression {
     public Object  value() {
          return constant;
     }
+
 }

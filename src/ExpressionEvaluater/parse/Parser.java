@@ -1,8 +1,8 @@
-package ExpressionEvaluater.parse;import ExpressionEvaluater.expression.Constant;
+package ExpressionEvaluater.parse;
+
+import ExpressionEvaluater.expression.Constant;
 import ExpressionEvaluater.expression.Expression;
 
-public class Parser {
-    public static Expression parser(String expression){
-        return new Constant(1);
-    }
+public interface Parser {
+    public Object parser(String expression);
 }
