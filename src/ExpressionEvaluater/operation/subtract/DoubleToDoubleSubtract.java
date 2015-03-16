@@ -1,6 +1,7 @@
 package ExpressionEvaluater.operation.subtract;
 
 import ExpressionEvaluater.expression.Operation;
+import ExpressionEvaluater.operation.BinaryOperation;
 
 
 import java.lang.reflect.InvocationTargetException;
@@ -8,7 +9,7 @@ import java.lang.reflect.InvocationTargetException;
 /**
  * Created by osvaldo on 2/24/15.
  */
-public class DoubleToDoubleSubtract extends ExpressionEvaluater.operation.Operation {
+public class DoubleToDoubleSubtract extends BinaryOperation {
 
 
     public DoubleToDoubleSubtract(Operation leftOperation, Operation rightOperation) {

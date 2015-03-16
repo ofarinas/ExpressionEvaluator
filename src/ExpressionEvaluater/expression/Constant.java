@@ -12,4 +12,9 @@ public  class Constant implements Operation {
          return constant;
     }
 
+    @Override
+    public boolean equals(Object obj) {
+        return constant.equals(((Constant)obj).value());
+
+    }
 }

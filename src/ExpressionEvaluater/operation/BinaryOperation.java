@@ -4,11 +4,11 @@ import ExpressionEvaluater.expression.Evaluable;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 
-public abstract class Operation implements ExpressionEvaluater.expression.Operation, Evaluable {
+public abstract class BinaryOperation implements ExpressionEvaluater.expression.Operation, Evaluable {
     private final ExpressionEvaluater.expression.Operation leftOperation;
     private final ExpressionEvaluater.expression.Operation rightOperation;
 
-    public Operation(ExpressionEvaluater.expression.Operation leftOperation, ExpressionEvaluater.expression.Operation rightOperation) {
+    public BinaryOperation(ExpressionEvaluater.expression.Operation leftOperation, ExpressionEvaluater.expression.Operation rightOperation) {
         this.leftOperation = leftOperation;
         this.rightOperation = rightOperation;
     }

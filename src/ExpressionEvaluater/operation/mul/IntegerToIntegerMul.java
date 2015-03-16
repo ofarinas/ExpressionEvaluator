@@ -1,10 +1,11 @@
 package ExpressionEvaluater.operation.mul;
 
 import ExpressionEvaluater.expression.Operation;
+import ExpressionEvaluater.operation.BinaryOperation;
 
 import java.lang.reflect.InvocationTargetException;
 
-public class IntegerToIntegerMul extends ExpressionEvaluater.operation.Operation {
+public class IntegerToIntegerMul extends BinaryOperation {
 
 
     public IntegerToIntegerMul(Operation leftOperation, Operation rightOperation) {

@@ -1,10 +1,11 @@
 package ExpressionEvaluater.operation.add;
 import ExpressionEvaluater.expression.Operation;
+import ExpressionEvaluater.operation.BinaryOperation;
 
 import java.lang.reflect.InvocationTargetException;
 
 
-public class DoubleToDoubleAdd extends ExpressionEvaluater.operation.Operation {
+public class DoubleToDoubleAdd extends BinaryOperation {
 
 
     public DoubleToDoubleAdd(Operation leftOperation, Operation rightOperation) {

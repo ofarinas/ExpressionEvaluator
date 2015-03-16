@@ -7,4 +7,5 @@ import java.lang.reflect.InvocationTargetException;
  */
 public interface Operation {
     public  Object value() throws ClassNotFoundException, NoSuchMethodException, IllegalAccessException, InvocationTargetException, InstantiationException;
+
 }

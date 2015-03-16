@@ -1,13 +1,14 @@
 package ExpressionEvaluater.operation.mul;
 
 import ExpressionEvaluater.expression.Operation;
+import ExpressionEvaluater.operation.BinaryOperation;
 
 import java.lang.reflect.InvocationTargetException;
 
 /**
  * Created by osvaldo on 2/24/15.
  */
-public class DoubleToIntegerMul extends ExpressionEvaluater.operation.Operation {
+public class DoubleToIntegerMul extends BinaryOperation {
 
     public DoubleToIntegerMul(Operation leftOperation, Operation rightOperation) {
         super(leftOperation, rightOperation);

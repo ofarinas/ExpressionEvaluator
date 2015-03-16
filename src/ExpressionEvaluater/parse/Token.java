@@ -1,6 +1,6 @@
 package ExpressionEvaluater.parse;
 
-public  class Token {
+public  class  Token {
 
     private Object value;
     private  String type;

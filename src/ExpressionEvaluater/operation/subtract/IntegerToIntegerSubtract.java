@@ -1,10 +1,11 @@
 package ExpressionEvaluater.operation.subtract;
 
 import ExpressionEvaluater.expression.Operation;
+import ExpressionEvaluater.operation.BinaryOperation;
 
 import java.lang.reflect.InvocationTargetException;
 
-public class IntegerToIntegerSubtract extends ExpressionEvaluater.operation.Operation {
+public class IntegerToIntegerSubtract extends BinaryOperation {
 
 
     public IntegerToIntegerSubtract(Operation leftOperation, Operation rightOperation) {
