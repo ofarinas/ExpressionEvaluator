@@ -1,19 +1,18 @@
 package ExpressionEvaluater.operation.subtract;
 
-import ExpressionEvaluater.expression.Expression;
-import ExpressionEvaluater.operation.Operation;
+import ExpressionEvaluater.expression.Operation;
 
 import java.lang.reflect.InvocationTargetException;
 
-public class IntegerToIntegerSubtract extends Operation  {
+public class IntegerToIntegerSubtract extends ExpressionEvaluater.operation.Operation {
 
 
-    public IntegerToIntegerSubtract(Expression leftExpression, Expression rightExpression) {
-        super(leftExpression, rightExpression);
+    public IntegerToIntegerSubtract(Operation leftOperation, Operation rightOperation) {
+        super(leftOperation, rightOperation);
     }
 
     public Object value() throws ClassNotFoundException, NoSuchMethodException, InvocationTargetException, InstantiationException, IllegalAccessException {
-        return (Integer) getLeftExpression().value() - (Integer) getRightExpression().value();
+        return (Integer) getLeftOperation().value() - (Integer) getRightOperation().value();
     }
 
     @Override

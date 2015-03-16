@@ -1,16 +1,15 @@
 package ExpressionEvaluater.operation.add;
 
-import ExpressionEvaluater.expression.Expression;
-import ExpressionEvaluater.operation.Operation;
+import ExpressionEvaluater.expression.Operation;
 
 import java.lang.reflect.InvocationTargetException;
 /**
  * Created by osvaldo on 2/10/15.
  */
-public class Add extends Operation  {
+public class Add extends ExpressionEvaluater.operation.Operation {
 
-    public Add(Expression leftExpression, Expression rightExpression) {
-        super(leftExpression, rightExpression);
+    public Add(Operation leftOperation, Operation rightOperation) {
+        super(leftOperation, rightOperation);
     }
 
     @Override

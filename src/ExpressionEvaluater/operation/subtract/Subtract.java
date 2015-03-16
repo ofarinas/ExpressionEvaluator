@@ -1,17 +1,16 @@
 package ExpressionEvaluater.operation.subtract;
 
-import ExpressionEvaluater.expression.Expression;
-import ExpressionEvaluater.operation.*;
+import ExpressionEvaluater.expression.Operation;
 
 import java.lang.reflect.InvocationTargetException;
 
 /**
  * Created by osvaldo on 2/10/15.
  */
-public  class Subtract extends Operation {
+public  class Subtract extends ExpressionEvaluater.operation.Operation {
 
-    public Subtract(Expression leftExpression, Expression rightExpression) {
-        super(leftExpression, rightExpression);
+    public Subtract(Operation leftOperation, Operation rightOperation) {
+        super(leftOperation, rightOperation);
     }
 
     @Override

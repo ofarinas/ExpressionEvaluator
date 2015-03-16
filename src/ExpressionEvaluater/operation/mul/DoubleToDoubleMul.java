@@ -1,22 +1,21 @@
 package ExpressionEvaluater.operation.mul;
 
-import ExpressionEvaluater.expression.Expression;
-import ExpressionEvaluater.operation.Operation;
+import ExpressionEvaluater.expression.Operation;
 
 import java.lang.reflect.InvocationTargetException;
 
 /**
  * Created by osvaldo on 2/24/15.
  */
-public class DoubleToDoubleMul extends Operation {
+public class DoubleToDoubleMul extends ExpressionEvaluater.operation.Operation {
 
-    public DoubleToDoubleMul(Expression leftExpression, Expression rightExpression) {
-        super(leftExpression, rightExpression);
+    public DoubleToDoubleMul(Operation leftOperation, Operation rightOperation) {
+        super(leftOperation, rightOperation);
     }
 
 
     public Object value() throws ClassNotFoundException, NoSuchMethodException, InvocationTargetException, InstantiationException, IllegalAccessException {
-        return (Double) getLeftExpression().value() * (Double) getRightExpression().value();
+        return (Double) getLeftOperation().value() * (Double) getRightOperation().value();
     }
 
     @Override

@@ -1,22 +1,21 @@
 package ExpressionEvaluater.operation.add;
 
-import ExpressionEvaluater.expression.Expression;
-import ExpressionEvaluater.operation.Operation;
+import ExpressionEvaluater.expression.Operation;
 
 import java.lang.reflect.InvocationTargetException;
 
 /**
  * Created by osvaldo on 2/24/15.
  */
-public class DoubleToIntegerAdd extends Operation {
+public class DoubleToIntegerAdd extends ExpressionEvaluater.operation.Operation {
 
-    public DoubleToIntegerAdd(Expression leftExpression, Expression rightExpression) {
-        super(leftExpression, rightExpression);
+    public DoubleToIntegerAdd(Operation leftOperation, Operation rightOperation) {
+        super(leftOperation, rightOperation);
     }
 
 
     public Object value() throws ClassNotFoundException, NoSuchMethodException, InvocationTargetException, InstantiationException, IllegalAccessException {
-        return (Double)getLeftExpression().value() + (Integer) getRightExpression().value();
+        return (Double) getLeftOperation().value() + (Integer) getRightOperation().value();
     }
 
     @Override

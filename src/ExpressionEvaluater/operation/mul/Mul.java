@@ -1,17 +1,16 @@
 package ExpressionEvaluater.operation.mul;
 
-import ExpressionEvaluater.expression.Expression;
-import ExpressionEvaluater.operation.Operation;
+import ExpressionEvaluater.expression.Operation;
 
 import java.lang.reflect.InvocationTargetException;
 
 /**
  * Created by osvaldo on 2/10/15.
  */
-public class Mul extends Operation {
+public class Mul extends ExpressionEvaluater.operation.Operation {
 
-    public Mul(Expression leftExpression, Expression rightExpression) {
-        super(leftExpression, rightExpression);
+    public Mul(Operation leftOperation, Operation rightOperation) {
+        super(leftOperation, rightOperation);
     }
 
     @Override

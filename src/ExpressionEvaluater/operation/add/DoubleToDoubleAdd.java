@@ -1,20 +1,19 @@
 package ExpressionEvaluater.operation.add;
-import ExpressionEvaluater.expression.Expression;
-import ExpressionEvaluater.operation.Operation;
+import ExpressionEvaluater.expression.Operation;
 
 import java.lang.reflect.InvocationTargetException;
 
 
-public class DoubleToDoubleAdd extends Operation {
+public class DoubleToDoubleAdd extends ExpressionEvaluater.operation.Operation {
 
 
-    public DoubleToDoubleAdd(Expression leftExpression, Expression rightExpression) {
-        super(leftExpression, rightExpression);
+    public DoubleToDoubleAdd(Operation leftOperation, Operation rightOperation) {
+        super(leftOperation, rightOperation);
     }
 
 
     public Object value() throws ClassNotFoundException, NoSuchMethodException, InvocationTargetException, InstantiationException, IllegalAccessException {
-        return (Double) getLeftExpression().value()+(Double)getRightExpression().value();
+        return (Double) getLeftOperation().value()+(Double) getRightOperation().value();
     }
 
     @Override

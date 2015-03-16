@@ -1,6 +1,6 @@
 package ExpressionEvaluater.evaluador;
 
-import ExpressionEvaluater.expression.Expression;
+import ExpressionEvaluater.expression.Operation;
 import java.lang.ClassNotFoundException;
 import java.lang.InstantiationException;
 import java.lang.NoSuchMethodException;
@@ -9,7 +9,7 @@ import java.lang.reflect.InvocationTargetException;
 
 public class Evaluator {
 
-    public static Object evaluate(Expression expression) throws ClassNotFoundException, NoSuchMethodException, InvocationTargetException, InstantiationException, java.lang.IllegalAccessException {
-        return expression.value();
+    public static Object evaluate(Operation operation) throws ClassNotFoundException, NoSuchMethodException, InvocationTargetException, InstantiationException, java.lang.IllegalAccessException {
+        return operation.value();
     }
 }
