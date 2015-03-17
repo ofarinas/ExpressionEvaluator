@@ -1,16 +1,16 @@
 package ExpressionEvaluater.operation.add;
 
-import ExpressionEvaluater.expression.Operation;
-import ExpressionEvaluater.operation.BinaryOperation;
+import ExpressionEvaluater.expression.Expression;
+import ExpressionEvaluater.operation.BinaryExpression;
 
 import java.lang.reflect.InvocationTargetException;
 /**
  * Created by osvaldo on 2/10/15.
  */
-public class Add extends BinaryOperation {
+public class Add extends BinaryExpression {
 
-    public Add(Operation leftOperation, Operation rightOperation) {
-        super(leftOperation, rightOperation);
+    public Add(Expression leftExpression, Expression rightExpression) {
+        super(leftExpression, rightExpression);
     }
 
     @Override
@@ -23,21 +23,4 @@ public class Add extends BinaryOperation {
         return "Add";
     }
 
-    @Override
-    public boolean equals(Object obj) {
-        try {
-            return isEqualLeftOperation((Add) obj) && isEqualRightOperation((Add) obj);
-        } catch (ClassNotFoundException | InstantiationException | InvocationTargetException | IllegalAccessException | NoSuchMethodException e) {
-            e.printStackTrace();
-        }
-        return false;
-    }
-
-    private boolean isEqualRightOperation(Add obj) throws ClassNotFoundException, NoSuchMethodException, IllegalAccessException, InvocationTargetException, InstantiationException {
-        return getRightOperation().value().equals( obj.getRightOperation().value());
-    }
-
-    private boolean isEqualLeftOperation(Add obj) throws ClassNotFoundException, NoSuchMethodException, IllegalAccessException, InvocationTargetException, InstantiationException {
-        return getLeftOperation().value().equals( obj.getLeftOperation().value());
-    }
 }

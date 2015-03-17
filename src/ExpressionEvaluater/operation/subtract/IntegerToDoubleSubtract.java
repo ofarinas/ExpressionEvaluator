@@ -1,22 +1,22 @@
 package ExpressionEvaluater.operation.subtract;
 
-import ExpressionEvaluater.expression.Operation;
-import ExpressionEvaluater.operation.BinaryOperation;
+import ExpressionEvaluater.expression.Expression;
+import ExpressionEvaluater.operation.BinaryExpression;
 
 import java.lang.reflect.InvocationTargetException;
 
 /**
  * Created by osvaldo on 2/24/15.
  */
-public class IntegerToDoubleSubtract extends BinaryOperation {
+public class IntegerToDoubleSubtract extends BinaryExpression {
 
 
-    public IntegerToDoubleSubtract(Operation leftOperation, Operation rightOperation) {
-        super(leftOperation, rightOperation);
+    public IntegerToDoubleSubtract(Expression leftExpression, Expression rightExpression) {
+        super(leftExpression, rightExpression);
     }
 
     public Object value() throws ClassNotFoundException, NoSuchMethodException, InvocationTargetException, InstantiationException, IllegalAccessException {
-        return (Integer) getLeftOperation().value() - (Double) getRightOperation().value();
+        return (Integer) getLeftExpression().value() - (Double) getRightExpression().value();
     }
 
     @Override

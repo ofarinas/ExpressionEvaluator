@@ -1,6 +1,6 @@
 package ExpressionEvaluater.expression;
 
-public  class Constant implements Operation {
+public  class Constant implements Expression {
     private final Object constant;
 
     public Constant(Object  constant) {

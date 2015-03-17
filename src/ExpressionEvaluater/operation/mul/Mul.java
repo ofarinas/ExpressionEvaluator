@@ -1,17 +1,17 @@
 package ExpressionEvaluater.operation.mul;
 
-import ExpressionEvaluater.expression.Operation;
-import ExpressionEvaluater.operation.BinaryOperation;
+import ExpressionEvaluater.expression.Expression;
+import ExpressionEvaluater.operation.BinaryExpression;
 
 import java.lang.reflect.InvocationTargetException;
 
 /**
  * Created by osvaldo on 2/10/15.
  */
-public class Mul extends BinaryOperation {
+public class Mul extends BinaryExpression {
 
-    public Mul(Operation leftOperation, Operation rightOperation) {
-        super(leftOperation, rightOperation);
+    public Mul(Expression leftExpression, Expression rightExpression) {
+        super(leftExpression, rightExpression);
     }
 
     @Override

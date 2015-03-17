@@ -1,32 +1,45 @@
 package ExpressionEvaluater.parse;
 
-import ExpressionEvaluater.expression.Operation;
+import ExpressionEvaluater.expression.Constant;
+import ExpressionEvaluater.expression.Expression;
 
-import java.util.Arrays;
 import java.util.Stack;
 
 public class SyntacticAnalyzer {
 
 
-    public static Operation parse(Token... tokens) {
-        Stack<Token> tokenStack = new Stack<>();
+    public static Expression parse(Token... tokens) {
+        Stack<Expression> tokenStack = new Stack<>();
         Stack<Token> operatorStack = new Stack<>();
-        return chutingYarInDeep(tokenStack, operatorStack, tokens);
+        for (Token token : tokens) {
+
+            fillStack(tokenStack, operatorStack, token);
+        }
+        return buildExpression(tokenStack, operatorStack);
     }
 
-    private static Operation chutingYarInDeep(Stack<Token> expressionStack, Stack<Token> operatorStack, Token[] tokens) {
-        if (tokens.length == 0) {
-            Operation build = ExpressionBuild.build(operatorStack.pop(), operatorStack, expressionStack);
-            return build;
+    private static void fillStack(Stack<Expression> tokenStack, Stack<Token> operatorStack, Token token) {
+        if(token.getType().equals("Constant"))tokenStack.push(new Constant(token.getValue()));
+        if(token.getType().equals("(")) operatorStack.push(token);
+        if(token.getType().equals(")")) solvedBracket(tokenStack,operatorStack);
+        if(token.getType().equals("Add")) operatorStack.push(token);
+        if(token.getType().equals("Sub")) operatorStack.push(token);
+        if(token.getType().equals("Mul")) operatorStack.push(token);
+    }
+
+    private static void solvedBracket(Stack<Expression> tokenStack, Stack<Token> operatorStack) {
+        Token temp = operatorStack.peek();
+        while (!temp.getValue().equals("(")) {
+            ExpressionBuild.getOperation(operatorStack,tokenStack);
+            temp= operatorStack.peek();
         }
-        if (tokens[0].getType().equals("Constant")) {
-            expressionStack.push(tokens[0]);
-            return chutingYarInDeep(expressionStack,operatorStack, Arrays.copyOfRange(tokens, 1, tokens.length ));
-        }
-        else if (tokens[0].getType().equals("Add")) {
-            operatorStack.push(tokens[0]);
-            return chutingYarInDeep(expressionStack,operatorStack, Arrays.copyOfRange(tokens, 1, tokens.length ));
-        }
-        return null;
+        operatorStack.pop();
+    }
+
+    private static Expression buildExpression(Stack<Expression> expressionStack, Stack<Token> operatorStack) {
+            while (!operatorStack.isEmpty()){
+                  ExpressionBuild.getOperation(operatorStack,expressionStack);
+            }
+    return expressionStack.pop();
     }
 }

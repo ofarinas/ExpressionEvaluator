@@ -1,19 +1,19 @@
 package ExpressionEvaluater.operation.mul;
 
-import ExpressionEvaluater.expression.Operation;
-import ExpressionEvaluater.operation.BinaryOperation;
+import ExpressionEvaluater.expression.Expression;
+import ExpressionEvaluater.operation.BinaryExpression;
 
 import java.lang.reflect.InvocationTargetException;
 
-public class IntegerToIntegerMul extends BinaryOperation {
+public class IntegerToIntegerMul extends BinaryExpression {
 
 
-    public IntegerToIntegerMul(Operation leftOperation, Operation rightOperation) {
-        super(leftOperation, rightOperation);
+    public IntegerToIntegerMul(Expression leftExpression, Expression rightExpression) {
+        super(leftExpression, rightExpression);
     }
 
     public Object value() throws ClassNotFoundException, NoSuchMethodException, InvocationTargetException, InstantiationException, IllegalAccessException {
-        return (Integer) getLeftOperation().value() * (Integer) getRightOperation().value();
+        return (Integer) getLeftExpression().value() * (Integer) getRightExpression().value();
     }
 
     @Override

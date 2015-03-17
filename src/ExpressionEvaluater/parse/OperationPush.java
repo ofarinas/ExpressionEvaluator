@@ -1,10 +1,5 @@
 package ExpressionEvaluater.parse;
 
-import ExpressionEvaluater.expression.Constant;
-import ExpressionEvaluater.expression.Operation;
-import ExpressionEvaluater.operation.BinaryOperation;
-import ExpressionEvaluater.operation.add.Add;
-
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Stack;
@@ -14,31 +9,29 @@ import java.util.Stack;
  */
 public class OperationPush {
 
-        private static Map<String,Pus> operationBuildMap = new HashMap<>();
+        private static Map<String,PushBuilder> operationPushMap = new HashMap<>();
         static {
-            operationBuildMap.put("+", (operatorStack, expressionStack) -> {
-                Constant constantRight = getRightOperation(expressionStack);
-                return new Add(new Constant(expressionStack.pop().getValue()),constantRight);
+            operationPushMap.put("Constant", new PushBuilder() {
+                @Override
+                public void pushInStack(Stack<Token> operatorStack, Stack<Token> expressionStack, Token... tokens) {
+                    expressionStack.push(tokens[0]);
+                }
+            });
+            operationPushMap.put("Add", new PushBuilder() {
+                @Override
+                public void pushInStack(Stack<Token> operatorStack, Stack<Token> expressionStack, Token... tokens) {
+                    operatorStack.push(tokens[0]);
+                }
             });
 
-
         }
 
-        private static Constant getRightOperation(Stack<Token> expressionStack) {
-            return new Constant(expressionStack.pop().getValue());
-        }
-
-        public static Operation build(Token token, Stack<Token> operatorStack, Stack<Token> expressionStack) {
-            return getOperation(token, operatorStack, expressionStack);
-        }
-
-        private static BinaryOperation getOperation(Token token, Stack<Token> operatorStack, Stack<Token> tokenStack) {
-            return operationBuildMap.get(token.getValue()).build(operatorStack,tokenStack);
+        public static void push(Stack<Object> operatorStack, Stack<Token> tokensStack,Token...tokens){
+            // operationPushMap.get(tokens[0].getType()).pushInStack(,operatorStack, );
         }
 
           interface PushBuilder {
-            public void build(Stack<Token> operatorStack,Stack<Token> tokensStack);
+            public void pushInStack(Stack<Token> operatorStack, Stack<Token> tokensStack, Token... tokens);
         }
-    }
 
 }
