@@ -8,7 +8,7 @@ import org.junit.Test;
 
 import static junit.framework.Assert.assertEquals;
 
-public class TestingSyntacticAnalyzer {
+public class TestingSyntacticAnalyzer  {
 
     @Test
     public void withOnePlusTwo() throws Exception {
