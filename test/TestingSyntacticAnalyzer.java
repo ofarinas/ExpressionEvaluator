@@ -6,7 +6,7 @@ import ExpressionEvaluater.parse.SyntacticAnalyzer;
 import ExpressionEvaluater.parse.Token;
 import org.junit.Test;
 
-import static junit.framework.Assert.assertEquals;
+import static org.junit.Assert.assertEquals;
 
 public class TestingSyntacticAnalyzer  {
 
@@ -28,6 +28,7 @@ public class TestingSyntacticAnalyzer  {
         Expression parse = SyntacticAnalyzer.parse(tokens);
         assertEquals(new Add( new Add(new Constant(1), new Constant(2)),new Constant(3)), parse);
     }
+
     @Test
     public void withMulAndAdd() throws Exception {
         Token[] tokens = {new Token(3, "Constant"), new Token("*", "Mul"), new Token(2, "Constant"), new Token("+", "Add"), new Token(3, "Constant")};
@@ -35,10 +36,4 @@ public class TestingSyntacticAnalyzer  {
         assertEquals(new Add(new Mul(new Constant(3), new Constant(2)), new Constant(3)), parse);
     }
 
-    @Test
-    public void withAddTwoConstantAndMulWithBracket() throws Exception {
-        Token[] tokens = {new Token("(", "("),new Token(1, "Constant"), new Token("+", "Add"), new Token(2, "Constant"), new Token(")", ")"), new Token("*", "Add"), new Token(3, "Constant")};
-        Expression parse = SyntacticAnalyzer.parse(tokens);
-        assertEquals(new Mul( new Add(new Constant(1), new Constant(2)),new Constant(3)), parse);
-    }
 }

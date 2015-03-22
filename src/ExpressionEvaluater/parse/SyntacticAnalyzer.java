@@ -30,19 +30,25 @@ public class SyntacticAnalyzer {
     }
 
     private static boolean hashLessPrecedence(String operator, Stack<Token> operatorStack) {
-        if(operatorStack.isEmpty() ||  isOperator(operator)) return false;
-        return precedence(operatorStack.peek().getType()) > precedence(operator);
+        if (!isOperator(operator) || operatorStack.isEmpty())
+            return false;
+        return (isOperator(operatorStack.peek().getType())) ? precedence(operatorStack.peek().getType()) > precedence(operator) : false;
     }
 
     private static boolean isOperator(String operator) {
         for (int i = 0; i < Precedence.values().length; i++) {
-            if(Precedence.values()[i].name().equals(operator))return false ;
+            if (isParenthesis(operator)) return false;
+            if(Precedence.values()[i].name().equals(operator.toUpperCase())) return true;
         }
-        return true;
+        return false;
+    }
+
+    private static boolean isParenthesis (String operator) {
+        return (operator.equals(")") || operator.equals("(")) ? true : false;
     }
 
     private static int precedence(String operator) {
-        return Precedence.valueOf(operator.toUpperCase()).ordinal();
+        return Precedence.valueOf(operator.toUpperCase()).getValue();
     }
 
     enum Precedence {
