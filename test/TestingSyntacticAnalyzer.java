@@ -36,10 +36,4 @@ public class TestingSyntacticAnalyzer  {
         assertEquals(new Add(new Mul(new Constant(3), new Constant(2)), new Constant(3)), parse);
     }
 
-    @Test
-    public void withMulAndAddAndAdd() throws Exception {
-        Token[] tokens = {new Token(3, "Constant"), new Token("*", "Mul"), new Token(2, "Constant"), new Token("+", "Add"), new Token(3, "Constant")};
-        Expression parse = SyntacticAnalyzer.parse(tokens);
-        assertEquals(new Add(new Mul(new Constant(3), new Constant(2)), new Constant(3)), parse);
-    }
 }

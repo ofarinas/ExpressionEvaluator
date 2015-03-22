@@ -16,27 +16,34 @@ public class LexicalAnalyzerTest {
     @Test
     public void oneToken () {
         String expression= "1";
-        Token[] tokenArray = new Token[] { new Token("1", "Constant")};
+        Token[] tokenArray = new Token[] { new Token(1, "Constant")};
         assertTokenArray(tokenArray, LexicalAnalyzer.analyze(expression));
     }
 
     @Test
-    public void fiveToken () {
-        String expression= "( 1 + 3 )";
-        Token[] tokenArray = new Token[] { new Token("(", "("), new Token("1", "Constant"), new Token("+", "Add"), new Token("3", "Constant"), new Token(")", ")")};
+    public void threeToken () {
+        String expression= "1 + 32.2";
+        Token[] tokenArray = new Token[] { new Token(1, "Constant"), new Token("+", "Add"), new Token(32.2, "Constant")};
         assertTokenArray(tokenArray, LexicalAnalyzer.analyze(expression));
     }
+    @Test
+    public void fiveToken () {
+        String expression= "( 1 + 3 )";
+        Token[] tokenArray = new Token[] { new Token("(", "("), new Token(1, "Constant"), new Token("+", "Add"), new Token(3, "Constant"), new Token(")", ")")};
+        assertTokenArray(tokenArray, LexicalAnalyzer.analyze(expression));
+    }
+
 
     @Test
     public void mixExpressions () {
         String expression = "( 1 - 2 ) * 5";
         Token[] tokenArray =  new Token[] {new Token("(", "("),
-                new Token("1", "Constant"),
+                new Token(1, "Constant"),
                 new Token("-", "Sub"),
-                new Token("2", "Constant"),
+                new Token(2, "Constant"),
                 new Token(")", ")"),
                 new Token("*", "Mul"),
-                new Token("5", "Constant")};
+                new Token(5, "Constant")};
         assertTokenArray(tokenArray, LexicalAnalyzer.analyze(expression));
     }
 
