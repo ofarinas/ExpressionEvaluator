@@ -1,5 +1,6 @@
 package ExpressionEvaluater.parse;
 
+import java.awt.geom.Arc2D;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -17,7 +18,17 @@ public class TokedBuild {
     };
 
     public static Token getToken(String character) {
-        if (character.matches("[0-9]+")) return new Token(character, "Constant");
+        if (Number.isInteger(character)) return new Token(Integer.valueOf(character), "Constant");
+        else if (Number.isDouble(character)) return new Token(Double.valueOf(character), "Constant");
         return tokenMap.get(character);
+    }
+    public static class Number{
+        public static boolean isInteger(String number){
+            return number.matches("\\d+");
+        }
+        public static boolean isDouble(String number){
+            return number.matches("^-?[0-9]+([,\\.][0-9]*)?$");
+        }
+
     }
 }
